@@ -7,8 +7,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-import poo.util.Stack;
-import poo.util.StackConcatenato;
+import java.util.Stack;
 
 public class ValutatoreEspressioni
 {
@@ -83,7 +82,7 @@ class Finestra extends JFrame implements ActionListener
 				{	JOptionPane.showMessageDialog(bottone.getParent(), "Espressione malformata, ripetere...", "Errore", 0);}
 		}
 		if(e.getSource() == help)
-			JOptionPane.showMessageDialog(help.getParent(), "Questa applicazione fornisce il risultato di un'espressione aritmetica.\nGli operandi ammessi sono interi senza segno.\nGli operatori ammessi sono: ^, *, /, %, +, -.\nE' possibile utilizzare le parentesi tonde per alterare le priorit‡ intrinseche.", "Informazioni", 1);
+			JOptionPane.showMessageDialog(help.getParent(), "Questa applicazione fornisce il risultato di un'espressione aritmetica.\nGli operandi ammessi sono interi senza segno.\nGli operatori ammessi sono: ^, *, /, %, +, -.\nE' possibile utilizzare le parentesi tonde per alterare le priorit√† intrinseche.", "Informazioni", 1);
 	}
 
 }
@@ -112,8 +111,8 @@ final class Valuta
 	
 	public static int valutaEspressione(String s)
 	{	StringTokenizer st = new StringTokenizer(s, tot+"( )", true);
-		Stack<Integer> operandi = new StackConcatenato<>();
-		Stack<Character> operatori = new StackConcatenato<>();
+		Stack<Integer> operandi = new Stack<>();
+		Stack<Character> operatori = new Stack<>();
 		int index = 0;
 		while(st.hasMoreTokens())
 		{	String e = st.nextToken();
